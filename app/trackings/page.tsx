@@ -2,8 +2,8 @@
 'use client'; 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import TopBar from "../tracking/TopBar";
-import Sidebar from "../tracking/Sidebar";
+import TopBar from "../components/TopBar";
+import Sidebar from "../components/Sidebar";
 
 const MyMapComponent = dynamic(() => import("../components/tracking-map/page"), { ssr: false });
 
