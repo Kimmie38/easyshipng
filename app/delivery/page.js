@@ -10,7 +10,6 @@ import EasyShip from '/assets/images/Easyship 1 (1).png';
 import Dashboard from '/assets/images/Dashboard.png';
 import Delivery from '/assets/images/Delivery.png';
 import Payment from '/assets/images/Payment.png';
-// import Tracking from '/assets/images/Tracking.png';
 import Person from '/assets/images/Person.png';
 import Search from '/assets/images/Search.png';
 
@@ -27,9 +26,10 @@ const DeliveryPage = () => {
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
 
+  // Handle form submission
   const handleSubmit = () => {
     console.log('Booking Details:', { from, to, date });
-    // Add logic to handle booking
+    // Add additional logic for submission, e.g., API call or redirect
   };
 
   return (
@@ -42,10 +42,6 @@ const DeliveryPage = () => {
             <Image src={Dashboard} alt="Dashboard" />
             <h3 className="text-[11px] text-black/75">Dashboard</h3>
           </div>
-          {/* <div className="text-center">
-            <Image src={Tracking} alt="Tracking" />
-            <h3 className="text-[11px] text-black/75">Tracking</h3>
-          </div> */}
           <div className="text-center">
             <Image src={Payment} alt="Payment" />
             <h3 className="text-[11px] text-black/75">Payment</h3>
@@ -81,10 +77,10 @@ const DeliveryPage = () => {
         {/* Booking Section */}
         <div className="bg-white rounded-[20px] shadow-[0_8px_16px_rgba(0,0,0,0.06)] px-[40px] py-[48px] max-w-[960px] mx-auto">
           <h1 className="text-[28px] font-semibold text-center mb-3 tracking-tight">
-            <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
+             <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
           </h1>
           <p className="text-center text-[#6E7191] text-[15px] mb-[36px] max-w-[480px] mx-auto leading-[1.6]">
-            Pick where you&apos;re leaving from and where you&apos;re going using the dropdowns,
+            Pick where you're leaving from and where you're going using the dropdowns,
             then choose your travel date
           </p>
 
@@ -152,8 +148,9 @@ const DeliveryPage = () => {
           <Link href="./" className="text-[#2e3192] font-bold">
             <button
               className="w-[471px] max-sm:w-[180px] max-md:w-[220px] h-[53px] bg-[#264AE5] hover:bg-[#1f3bcc] text-white py-[16px] rounded-[14px] flex items-center justify-center gap-2 m-auto text-[15px] font-medium"
+              onClick={handleSubmit} // Use the handleSubmit function here
             >
-              Book a Delivery
+              Book Now
             </button>
           </Link>
         </div>
