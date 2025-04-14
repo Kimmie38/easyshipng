@@ -27,7 +27,8 @@ const DeliveryPage = () => {
   const [date, setDate] = useState('');
 
   // Handle form submission
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default action of the button (if necessary)
     console.log('Booking Details:', { from, to, date });
     // Add additional logic for submission, e.g., API call or redirect
   };
@@ -80,7 +81,7 @@ const DeliveryPage = () => {
              <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
           </h1>
           <p className="text-center text-[#6E7191] text-[15px] mb-[36px] max-w-[480px] mx-auto leading-[1.6]">
-            Pick where you&apos;re leaving from and where you're going using the dropdowns,
+            Pick where you&apos;re leaving from and where you&apos;re going using the dropdowns,
             then choose your travel date
           </p>
 
