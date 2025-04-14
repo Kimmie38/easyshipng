@@ -3,16 +3,19 @@
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-interface Props {
+// Explicitly declare the Props interface
+interface TrackingMapProps {
   location: {
     lat: number;
     lng: number;
   } | null;
 }
 
-const TrackingMap = ({ location }: Props) => {
+// Define the component with the correct typing
+const TrackingMap: React.FC<TrackingMapProps> = ({ location }) => {
+  // Use the API key from environment variables
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.AIzaSyBD9sp8VGqCElzC9D50bJ_bEMwRVHeKLrg || "", // Replace with your real key in .env
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",  // Correct way to access the API key
   });
 
   if (!isLoaded) return <div>Loading map...</div>;
