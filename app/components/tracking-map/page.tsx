@@ -2,7 +2,14 @@
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-const TrackingMap = ({ location }: { location: { lat: number; lng: number } | null }) => {
+interface TrackingMapProps {
+  location: {
+    lat: 6.5244,
+    lng: 3.3792,
+  } ;
+}
+
+const TrackingMap = ({ location }: TrackingMapProps) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
