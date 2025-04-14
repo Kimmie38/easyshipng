@@ -27,7 +27,7 @@ const DeliveryPage = () => {
   const [date, setDate] = useState('');
 
   // Handle form submission
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default action of the button (if necessary)
     console.log('Booking Details:', { from, to, date });
     // Add additional logic for submission, e.g., API call or redirect
