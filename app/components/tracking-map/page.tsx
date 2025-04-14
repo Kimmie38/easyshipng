@@ -2,7 +2,7 @@
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-const TrackingMap: React.FC<{ location: { lat: number; lng: number } | null }> = ({ location }) => {
+const TrackingMap = ({ location }: { location: { lat: number; lng: number } | null }) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
@@ -11,7 +11,11 @@ const TrackingMap: React.FC<{ location: { lat: number; lng: number } | null }> =
   if (!location) return <div>Fetching location...</div>;
 
   return (
-    <GoogleMap mapContainerStyle={{ width: "100%", height: "100%" }} center={location} zoom={15}>
+    <GoogleMap
+      mapContainerStyle={{ width: "100%", height: "100%" }}
+      center={location}
+      zoom={15}
+    >
       <Marker position={location} />
     </GoogleMap>
   );
