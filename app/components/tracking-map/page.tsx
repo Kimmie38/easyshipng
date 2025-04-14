@@ -3,16 +3,16 @@
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-type Props = {
+interface Props {
   location: {
     lat: number;
     lng: number;
   } | null;
-};
+}
 
 const TrackingMap = ({ location }: Props) => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBD9sp8VGqCElzC9D50bJ_bEMwRVHeKLrg", // 🔁 Replace with your real key
+    googleMapsApiKey: process.env.AIzaSyBD9sp8VGqCElzC9D50bJ_bEMwRVHeKLrg || "", // Replace with your real key in .env
   });
 
   if (!isLoaded) return <div>Loading map...</div>;
