@@ -1,11 +1,8 @@
-
-// app/components/tracking-map/page.tsx
-
 "use client";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-// Define the Props interface explicitly
+// Define the Props interface directly in the component
 interface TrackingMapProps {
   location: {
     lat: number;
@@ -13,7 +10,7 @@ interface TrackingMapProps {
   } | null;
 }
 
-// Define the component with the correct typing
+// Define the component with the correct typing for props
 const TrackingMap = ({ location }: TrackingMapProps) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
