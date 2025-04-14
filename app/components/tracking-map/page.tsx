@@ -1,3 +1,4 @@
+
 // app/components/tracking-map/page.tsx
 
 "use client";
@@ -13,7 +14,7 @@ interface TrackingMapProps {
 }
 
 // Define the component with the correct typing
-const TrackingMap: React.FC<TrackingMapProps> = ({ location }) => {
+const TrackingMap = ({ location }: TrackingMapProps) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
   });
