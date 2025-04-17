@@ -1,17 +1,18 @@
+// app/components/tracking-map/TrackingMap.tsx
 "use client";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
-interface TrackingMapProps {
+type Props = {
   location: {
-    lat: 6.5244,
-    lng: 3.3792,
-  } ;
-}
+    lat: number; // ✅ changed from a fixed literal value to just `number`
+    lng: number;
+  };
+};
 
-const TrackingMap = ({ location }: TrackingMapProps) => {
+export default function MyMapComponent({ location }: Props) {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    googleMapsApiKey: "AIzaSyBD9sp8VGqCElzC9D50bJ_bEMwRVHeKLrg", // 🔁 Replace with your real key
   });
 
   if (!isLoaded) return <div>Loading map...</div>;
@@ -26,6 +27,4 @@ const TrackingMap = ({ location }: TrackingMapProps) => {
       <Marker position={location} />
     </GoogleMap>
   );
-};
-
-export default TrackingMap;
+}
