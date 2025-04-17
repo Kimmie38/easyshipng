@@ -31,7 +31,7 @@ const HeroSection = () => {
               Book Delivery
             </Button>
             </Link>
-            <Link href="/trackings">
+            <Link href="/track">
             <ButtonBorderStroke className='w-full sm:w-[180px] md:w-[219px] h-[44px] mt-2 sm:mt-0'>
               Track Shipment
             </ButtonBorderStroke>
