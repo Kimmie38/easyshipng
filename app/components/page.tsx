@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import TopBar from "../components/TopBar";
 import Sidebar from "../components/Sidebar";
 
-const MyMapComponent = dynamic(() => import("../components/trackings/tracking-map/TrackingMap"), { ssr: false });
+const MyMapComponent = dynamic(() => import("../components/trackings/tracking-Map/TrackingMap"), { ssr: false });
 
 export default function TrackingPage() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
