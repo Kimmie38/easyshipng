@@ -9,7 +9,7 @@ const HowEastShipWorks = () => {
       </h1>
       <section className='flex flex-wrap justify-center gap-6 mt-10'>
         <Cards>
-          <Image src='/assets/images/find my.png' alt='Find Product' width={54} height={54} />
+          <Image src='/assets/images/find my.png' alt='' width={54} height={54} />
           <h1 className='text-[#000] font-extrabold text-[21px]'>Find Your Product</h1>
           <p className='text-[#000]/65 text-[15px] font-light'>
             Browse and select from trusted vendors.

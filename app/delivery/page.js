@@ -26,19 +26,12 @@ const DeliveryPage = () => {
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
 
-  // Handle form submission
-  // const handleSubmit = (e) => {
-  //   e.preventDefault(); // Prevent default action of the button (if necessary)
-  //   console.log('Booking Details:', { from, to, date });
-  //   // Add additional logic for submission, e.g., API call or redirect
-  // };
-
   return (
-    <div className="flex h-[800px] max-h-screen w-screen font-inter bg-[#F7F8FA]">
+    <div className="flex flex-col md:flex-row min-h-screen w-full font-inter bg-[#F7F8FA] overflow-x-hidden">
       {/* Sidebar */}
-      <aside className="w-[80px] mt-[-22px] bg-white shadow-md flex flex-col items-center py-6 justify-around">
-        <Image src={EasyShip} alt="EasyShip Logo" />
-        <div className="space-y-[27px]">
+      <aside className="w-full md:w-[80px] bg-white shadow-md flex md:flex-col items-center justify-between md:justify-around px-4 py-4 md:py-6 md:order-first order-last">
+        <Image src={EasyShip} alt="EasyShip Logo" className="w-8 h-8 md:w-auto md:h-auto" />
+        <div className="flex md:flex-col gap-4">
           <div className="text-center">
             <Image src={Dashboard} alt="Dashboard" />
             <h3 className="text-[11px] text-black/75">Dashboard</h3>
@@ -52,18 +45,19 @@ const DeliveryPage = () => {
             <h3 className="text-[11px] text-black/75">Delivery</h3>
           </div>
         </div>
-        <Image src={Person} alt="User" />
+        <Image src={Person} alt="User" className="w-6 h-6 md:w-auto md:h-auto" />
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 px-[64px] pt-[32px] pb-[48px] overflow-auto">
-        <div className="flex justify-between items-center mb-[40px]">
-          <div className="text-sm text-[#A0A3BD] font-medium space-x-1">
+      <main className="flex-1 px-4 sm:px-8 md:px-16 pt-6 pb-10 overflow-auto">
+        {/* Top bar */}
+        <div className="flex flex-col md:flex-row md:justify-between items-center mb-10 gap-4">
+          <div className="text-sm text-[#A0A3BD] font-medium">
             <span>Overview</span>
-            <span className="text-[#4E4B66]">•</span>
+            <span className="text-[#4E4B66] mx-1">•</span>
             <span className="text-[#4E4B66] font-semibold">Tracking</span>
           </div>
-          <div className="relative w-[240px]">
+          <div className="relative w-full max-w-xs">
             <input
               type="text"
               placeholder="Search"
@@ -76,19 +70,20 @@ const DeliveryPage = () => {
         </div>
 
         {/* Booking Section */}
-        <div className="bg-white rounded-[20px] shadow-[0_8px_16px_rgba(0,0,0,0.06)] px-[40px] py-[48px] max-w-[960px] mx-auto">
-          <h1 className="text-[28px] font-semibold text-center mb-3 tracking-tight">
-             <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
+        <div className="bg-white rounded-[20px] shadow-[0_8px_16px_rgba(0,0,0,0.06)] px-6 sm:px-10 py-10 max-w-5xl mx-auto">
+          <h1 className="text-2xl sm:text-[28px] font-semibold text-center mb-3 tracking-tight">
+            <span className="text-[#264AE5]">BOOK A DELIVERY</span>
           </h1>
-          <p className="text-center text-[#6E7191] text-[15px] mb-[36px] max-w-[480px] mx-auto leading-[1.6]">
-            Pick where you&apos;re leaving from and where you&apos;re going using the dropdowns,
+          <p className="text-center text-[#6E7191] text-sm sm:text-[15px] mb-9 max-w-md mx-auto leading-relaxed">
+            Pick where you’re leaving from and where you’re going using the dropdowns,
             then choose your travel date
           </p>
 
-          <div className="flex flex-col md:flex-row gap-[20px] mb-[32px]">
+          {/* Dropdowns + Date Picker */}
+          <div className="flex flex-col md:flex-row md:justify-center gap-5 mb-8">
             {/* From Dropdown */}
             <Listbox value={from} onChange={setFrom}>
-              <div className="relative w-[280px] max-md:m-auto max-sm:w-[180px]">
+              <div className="relative w-full md:w-[240px]">
                 <Listbox.Button className="h-[55px] w-full border border-[#D9DBE9] rounded-[14px] bg-white py-[16px] pl-[18px] pr-10 text-sm text-[#4E4B66] text-left shadow-sm">
                   {from || "From"}
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -113,7 +108,7 @@ const DeliveryPage = () => {
 
             {/* To Dropdown */}
             <Listbox value={to} onChange={setTo}>
-              <div className="relative w-[280px] max-md:m-auto max-sm:w-[180px]">
+              <div className="relative w-full md:w-[240px]">
                 <Listbox.Button className="h-[55px] w-full border border-[#D9DBE9] rounded-[14px] bg-white py-[16px] pl-[18px] pr-10 text-sm text-[#4E4B66] text-left shadow-sm">
                   {to || "To"}
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -141,15 +136,14 @@ const DeliveryPage = () => {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="flex-1 border max-sm:w-[180px] max-md:w-[280px] border-[#D9DBE9] rounded-[14px] px-[18px] py-[16px] text-sm text-[#4E4B66] max-md:m-auto bg-white shadow-sm"
+              className="w-full md:w-[240px] border border-[#D9DBE9] rounded-[14px] px-[18px] py-[16px] text-sm text-[#4E4B66] bg-white shadow-sm"
             />
           </div>
 
           {/* Submit Button */}
-          <Link href="/complete" className="text-[#2e3192] font-bold">
+          <Link href="/complete">
             <button
-              className="w-[471px] max-sm:w-[180px] max-md:w-[220px] h-[53px] bg-[#264AE5] hover:bg-[#1f3bcc] text-white py-[16px] rounded-[14px] flex items-center justify-center gap-2 m-auto text-[15px] font-medium"
-
+              className="w-full sm:w-[280px] h-[53px] bg-[#264AE5] hover:bg-[#1f3bcc] text-white py-[16px] rounded-[14px] flex items-center justify-center gap-2 m-auto text-[15px] font-medium transition"
             >
               Book Now
             </button>

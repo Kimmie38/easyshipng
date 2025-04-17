@@ -3,13 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import ButtonBorderStroke from "./UI/ButtonBorderStroke";
-import { Menu, X } from "lucide-react";
 import Link from 'next/link';
 
-
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = ["Home", "Company", "Services", "Contact"];
 
@@ -41,16 +39,13 @@ const NavBar = () => {
         </ul>
 
         <Link href="/signup">
-  <button className="bg-[#264AE5] hover:bg-[#1f3bcc] text-white px-6 py-3 rounded-[14px] text-[15px] font-medium">
-          SignUp
-  </button>
-</Link>
-
-        <button className='lg:hidden' onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          <button className="bg-[#264AE5] hover:bg-[#1f3bcc] text-white px-6 py-3 rounded-[14px] text-[15px] font-medium">
+            SignUp
+          </button>
+        </Link>
       </nav>
 
+      {/* Mobile menu (always visible on smaller screens) */}
       {isOpen && (
         <div className='lg:hidden bg-white/80 backdrop-blur-lg p-6 space-y-4 shadow-md'>
           <ul className='flex flex-col items-center space-y-4 text-gray-700 font-bold'>
