@@ -6,11 +6,32 @@ import { Listbox } from '@headlessui/react';
 import Link from "next/link";
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
+import EasyShip from '/assets/images/Easyship 1 (1).png';
+import Dashboard from '/assets/images/Dashboard.png';
+import Delivery from '/assets/images/Delivery.png';
+import Payment from '/assets/images/Payment.png';
+import Person from '/assets/images/Person.png';
+import Search from '/assets/images/Search.png';
+
+const states = [
+  "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno",
+  "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "FCT - Abuja", "Gombe",
+  "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos",
+  "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto",
+  "Taraba", "Yobe", "Zamfara"
+];
 
 const DeliveryPage = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default action of the button (if necessary)
+    console.log('Booking Details:', { from, to, date });
+    // Add additional logic for submission, e.g., API call or redirect
+  };
 
   return (
     <div className="flex h-[800px] max-h-screen w-screen font-inter bg-[#F7F8FA]">
@@ -57,7 +78,7 @@ const DeliveryPage = () => {
         {/* Booking Section */}
         <div className="bg-white rounded-[20px] shadow-[0_8px_16px_rgba(0,0,0,0.06)] px-[40px] py-[48px] max-w-[960px] mx-auto">
           <h1 className="text-[28px] font-semibold text-center mb-3 tracking-tight">
-            <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
+             <span className="text-[#264AE5]"> BOOK A DELIVERY</span>
           </h1>
           <p className="text-center text-[#6E7191] text-[15px] mb-[36px] max-w-[480px] mx-auto leading-[1.6]">
             Pick where you&apos;re leaving from and where you&apos;re going using the dropdowns,
@@ -125,9 +146,10 @@ const DeliveryPage = () => {
           </div>
 
           {/* Submit Button */}
-          <Link href="/complete" className="text-[#2e3192] font-bold">
+          <Link href="./" className="text-[#2e3192] font-bold">
             <button
               className="w-[471px] max-sm:w-[180px] max-md:w-[220px] h-[53px] bg-[#264AE5] hover:bg-[#1f3bcc] text-white py-[16px] rounded-[14px] flex items-center justify-center gap-2 m-auto text-[15px] font-medium"
+              onClick={handleSubmit} // Use the handleSubmit function here
             >
               Book Now
             </button>
