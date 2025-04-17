@@ -1,89 +1,130 @@
-"use client"; // Add this to mark the file as a client component
+"use client";
 
 import React, { useState } from "react";
-import Image from "next/image"; // Import Image component for optimized images
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link";
 
-const Login = () => {
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen w-full">
-      {/* Left Section */}
-      <div className="lg:w-1/2 w-full flex flex-col justify-center items-center bg-gray-100 px-6 sm:px-10 py-6 ">
-        {/* Logo */}
-        <Image
-          src="/assets/images/Easyship_111900.svg"
-          alt="EasyShip Logo"
-          width={150.75}
-          height={129}
-          className="bg-no-repeat bg-contain"
-        />
+    <div className="flex flex-col lg:flex-row min-h-screen w-full overflow-hidden">
 
-        <h1 className="md:text-2xl font-bold text-[#2b2c4f] mt-[33px] text-[27px]">Welcome back.</h1>
-        <p className="text-[#2b2c4f]/65 mb-[34px] mr-[10px] text-[15px]">Log in to continue</p>
+      {/* Left Section */}
+      <div className="w-full flex flex-col justify-center items-center bg-gray-100 px-6 md:px-10 flex-grow">
+        {/* Logo */}
+        <section className="flex flex-col items-center lg:mr-12 mb-6 md:mb-10">
+          <div
+            className="bg-no-repeat bg-contain"
+            style={{
+              backgroundImage: "url('/assets/images/Easyship_111900.svg')",
+              width: "120px",
+              height: "100px",
+            }}
+          ></div>
+
+          <h1 className="text-xl md:text-2xl font-bold text-[#2b2c4f] mt-6 text-center">
+            Welcome to EasyShip.
+          </h1>
+          <p className="text-[#2b2c4f]/65 text-sm md:text-base text-center mt-1">
+            Sign up to continue
+          </p>
+        </section>
 
         {/* Form */}
         <div className="w-full max-w-sm">
+          {/* Email */}
           <div className="relative w-full mb-3">
             <input
               type="email"
               placeholder="Email"
-              className="w-[332.25px] h-[36.75px] text-black placeholder:text-[12px] placeholder:inset-3 py-[10px] pl-[45px] pr-[8px] space-x-[8px] border-[#9e9e9e]/60 border-[2px] rounded-[11.25px] focus:outline-none focus:ring-2 focus:ring-blue-500  mb-[16.5px]"
+              className="w-full h-[40px] text-black placeholder:text-sm py-2 pl-11 pr-3 border border-[#9e9e9e]/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
             />
-            <Image
-              src="/assets/images/iconamoon_profile-fill.png"
-              alt="Email Icon"
-              width={20}
-              height={20}
-              className="absolute left-3 top-3"
-            />
+            <div
+              className="absolute top-2.5 left-3 w-5 h-5 bg-no-repeat bg-contain"
+              style={{ backgroundImage: "url('/assets/images/iconamoon_profile-fill.png')" }}
+            ></div>
           </div>
 
+          {/* Password */}
           <div className="relative w-full mb-3">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-[332.25px] h-[36.75px] text-black placeholder:text-[12px] placeholder:inset-3 py-[10px] pl-[45px] pr-[8px] space-x-[8px] border-[#9e9e9e]/60 border-[2px] rounded-[11.25px] focus:outline-none focus:ring-2 focus:ring-blue-500 mb-[16.5px]"
+              className="w-full h-[40px] text-black placeholder:text-sm py-2 pl-11 pr-3 border border-[#9e9e9e]/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
             />
-            <Image
-              src="/assets/images/majesticons_key.png"
-              alt="Password Icon"
-              width={20}
-              height={20}
-              className="absolute left-3 top-3"
-            />
-            <Image
-              // src={showPassword ? "/assets/images/eye-open.png" : "/images/majesticons_eye-off.png"}
-              alt="Toggle Password"
-              width={15}
-              height={15}
-              className="absolute left-[301px] top-[10px] w-[15px] h-[15px] bg-no-repeat bg-contain cursor-pointer text-black"
+            <div
+              className="absolute top-2.5 left-3 w-5 h-5 bg-no-repeat bg-contain"
+              style={{ backgroundImage: "url('/assets/images/majesticons_key.png')" }}
+            ></div>
+            <div
+              className="absolute top-2.5 right-3 w-5 h-5 bg-no-repeat bg-contain cursor-pointer"
+              style={{
+                backgroundImage: showPassword
+                  ? "url('/assets/images/eye-open.png')"
+                  : "url('/assets/images/majesticons_eye-off.png')",
+              }}
               onClick={() => setShowPassword(!showPassword)}
-            />
+            ></div>
           </div>
 
-          {/* Login Button */}
-          <button className="w-[332.25px] h-[36.75px] flex items-center justify-center py-3 bg-gradient-to-r from-[#00aeef] to-[#2e3192] text-white font-semibold rounded-[11.25px] p-[10px]">
-            Log in
-          </button>
+          {/* Confirm Password */}
+          <div className="relative w-full mb-3">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm password"
+              className="w-full h-[40px] text-black placeholder:text-sm py-2 pl-11 pr-3 border border-[#9e9e9e]/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <div
+              className="absolute top-2.5 left-3 w-5 h-5 bg-no-repeat bg-contain"
+              style={{ backgroundImage: "url('/assets/images/majesticons_key.png')" }}
+            ></div>
+            <div
+              className="absolute top-2.5 right-3 w-5 h-5 bg-no-repeat bg-contain cursor-pointer"
+              style={{
+                backgroundImage: showConfirmPassword
+                  ? "url('/assets/images/eye-open.png')"
+                  : "url('/assets/images/majesticons_eye-off.png')",
+              }}
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            ></div>
+          </div>
 
-          {/* Signup Link */}
-          <p className="text-center text-gray-600 text-sm mt-4">
-  Don’t have an account? 
-  <Link href="/signup" className="text-blue-600 font-semibold">Sign up</Link>
-</p>
+          {/* Terms */}
+          {/* <div className="flex items-center my-4 text-sm">
+            <input type="checkbox" className="mr-2" />
+            <span className="text-[#7f7f7f]">
+              I agree with the
+              <a href="#" className="text-[#2e3192] font-bold ml-1">
+                terms and conditions
+              </a>
+            </span>
+          </div> */}
 
+          {/* Sign Up */}
+          <Link href="./" className="text-[#2e3192] font-bold">
+            <button className="w-full h-[40px] bg-gradient-to-r from-[#00aeef] to-[#2e3192] text-white font-semibold rounded-xl">
+              Login
+            </button>
+          </Link>
+
+          {/* Already have account */}
+          {/* <p className="text-center text-gray-600 text-sm mt-4">
+            Already have an account?{" "}
+            <Link href="/login" className="text-[#2e3192] font-bold">
+              Log in
+            </Link>
+          </p> */}
         </div>
       </div>
 
-      {/* Right Section - Background Image */}
+      {/* Right Side Image (desktop only) */}
       <div
-        className="lg:w-1/2 w-full bg-no-repeat bg-cover bg-right lg:block hidden"
-        style={{ backgroundImage: "url('/assets/images/Frame 32.png')" }}
+        className="hidden lg:block lg:min-w-2/5 bg-no-repeat bg-cover bg-right h-screen"
+        style={{ backgroundImage: "url('/assets/images/emmybest.png')" }}
       ></div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

@@ -11,7 +11,7 @@ const SignUp = () => {
     <div className="flex flex-col lg:flex-row min-h-screen w-full overflow-hidden">
 
       {/* Left Section */}
-      <div className="w-full flex flex-col justify-center items-center bg-gray-100 px-6 md:px-10">
+      <div className="w-full flex flex-col justify-center items-center bg-gray-100 px-6 md:px-10 flex-grow">
         {/* Logo */}
         <section className="flex flex-col items-center lg:mr-12 mb-6 md:mb-10">
           <div
@@ -103,11 +103,10 @@ const SignUp = () => {
 
           {/* Sign Up */}
           <Link href="./" className="text-[#2e3192] font-bold">
-          <button className="w-full h-[40px] bg-gradient-to-r from-[#00aeef] to-[#2e3192] text-white font-semibold rounded-xl">
-            Sign up
-          </button>
+            <button className="w-full h-[40px] bg-gradient-to-r from-[#00aeef] to-[#2e3192] text-white font-semibold rounded-xl">
+              Sign up
+            </button>
           </Link>
-
 
           {/* Already have account */}
           <p className="text-center text-gray-600 text-sm mt-4">
@@ -121,7 +120,7 @@ const SignUp = () => {
 
       {/* Right Side Image (desktop only) */}
       <div
-        className="hidden lg:block lg:w-full bg-no-repeat bg-cover bg-right"
+        className="hidden lg:block lg:min-w-2/5 bg-no-repeat bg-cover bg-right h-screen"
         style={{ backgroundImage: "url('/assets/images/emmybest.png')" }}
       ></div>
     </div>
