@@ -27,11 +27,11 @@ const DeliveryPage = () => {
   const [date, setDate] = useState('');
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default action of the button (if necessary)
-    console.log('Booking Details:', { from, to, date });
-    // Add additional logic for submission, e.g., API call or redirect
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); // Prevent default action of the button (if necessary)
+  //   console.log('Booking Details:', { from, to, date });
+  //   // Add additional logic for submission, e.g., API call or redirect
+  // };
 
   return (
     <div className="flex h-[800px] max-h-screen w-screen font-inter bg-[#F7F8FA]">
@@ -146,10 +146,10 @@ const DeliveryPage = () => {
           </div>
 
           {/* Submit Button */}
-          <Link href="./" className="text-[#2e3192] font-bold">
+          <Link href="/complete" className="text-[#2e3192] font-bold">
             <button
               className="w-[471px] max-sm:w-[180px] max-md:w-[220px] h-[53px] bg-[#264AE5] hover:bg-[#1f3bcc] text-white py-[16px] rounded-[14px] flex items-center justify-center gap-2 m-auto text-[15px] font-medium"
-              onClick={handleSubmit} // Use the handleSubmit function here
+
             >
               Book Now
             </button>
